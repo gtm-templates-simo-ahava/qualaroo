@@ -3,6 +3,7 @@
 {
   "displayName": "Qualaroo",
   "description": "Template for adding the Qualaroo base code on the page.",
+  "__wm": "VGVtcGxhdGUtQXV0aG9yX1F1YWxhcm9vLVNpbW8tQWhhdmE=",
   "securityGroups": [],
   "id": "cvt_temp_public_id",
   "type": "TAG",
@@ -273,7 +274,7 @@ createQueue('_kiq');
 
 if (data.gaIntegration) {
   const ga = createArgumentsQueue('ga', 'ga.q');
-  ga('create', data.gaTrackingId);
+  ga('create', data.gaTrackingId, 'auto');
 }
 
 injectScript(scriptUrl, data.gtmOnSuccess, data.gtmOnFailure, 'qualaroo');
