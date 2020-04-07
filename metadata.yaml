@@ -1,7 +1,7 @@
 homepage: "www.simoahava.com"
 versions:
   # Latest version
-  - sha: e4e1384ce12700233d6ed449386c5230e0a177a9
+  - sha: b1bedcb3b81933963ee658c353aa07144a072158
     changeNotes: |2
       Added _kiq queue interactions.
       Added unit tests.
