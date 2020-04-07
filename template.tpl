@@ -12,6 +12,8 @@ ___INFO___
   "displayName": "Qualaroo",
   "description": "Tag template for Qualaroo.",
   "securityGroups": [],
+  "__wm": "VGVtcGxhdGUtQXV0aG9yX1F1YWxhcm9vLVNpbW8tQWhhdmE=",
+  "categories": ["SURVEY"],
   "id": "cvt_temp_public_id",
   "type": "TAG",
   "version": 1,
