@@ -1,8 +1,12 @@
 homepage: "www.simoahava.com"
 versions:
   # Latest version
+  - sha: e4e1384ce12700233d6ed449386c5230e0a177a9
+    changeNotes: |2
+      Added _kiq queue interactions.
+      Added unit tests.
+  # Older versions
   - sha: 44e8cdf33a7f7e9d1615e7c06f8d618eaa6a0b07
     changeNotes: Update template metadata.
-  # Older versions
   - sha: 548b82df4962f8724f3e4d2415689d4421ce4b3a
     changeNotes: Initial release.
