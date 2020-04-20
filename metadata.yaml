@@ -1,11 +1,13 @@
 homepage: "www.simoahava.com"
 versions:
   # Latest version
+  - sha: a782a1b048e78ccf72ef3d5c790894c4dfe5d1bb
+    changeNotes: Fix event handler configuration.
+  # Older versions
   - sha: b1bedcb3b81933963ee658c353aa07144a072158
     changeNotes: |2
       Added _kiq queue interactions.
       Added unit tests.
-  # Older versions
   - sha: 44e8cdf33a7f7e9d1615e7c06f8d618eaa6a0b07
     changeNotes: Update template metadata.
   - sha: 548b82df4962f8724f3e4d2415689d4421ce4b3a
