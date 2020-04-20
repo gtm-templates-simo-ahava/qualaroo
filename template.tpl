@@ -12,14 +12,16 @@ ___INFO___
   "displayName": "Qualaroo",
   "description": "Tag template for Qualaroo.",
   "securityGroups": [],
-  "__wm": "VGVtcGxhdGUtQXV0aG9yX1F1YWxhcm9vLVNpbW8tQWhhdmE=",
-  "categories": ["SURVEY"],
+  "__wm": "VGVtcGxhdGUtQXV0aG9yX1F1YWxhcm9vLVNpbW8tQWhhdmE\u003d",
+  "categories": [
+    "SURVEY"
+  ],
   "id": "cvt_temp_public_id",
   "type": "TAG",
   "version": 1,
   "brand": {
-    "displayName": "",
-    "id": "brand_dummy",
+    "displayName": "gtm-templates-simo-ahava",
+    "id": "github.com_gtm-templates-simo-ahava",
     "thumbnail": "data:image/png;base64,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\u003d"
   },
   "containerContexts": [
@@ -262,11 +264,11 @@ ___TEMPLATE_PARAMETERS___
                 "type": "EQUALS"
               }
             ],
-            "newRowButtonText": "Add event handler"
+            "newRowButtonText": "Add event handler",
+            "defaultValue": "show"
           }
         ],
-        "help": "See \u003ca href\u003d\"https://help.qualaroo.com/hc/en-us/articles/201447336-Using-Event-Handler-Callbacks\"\u003ethis article\u003c/a\u003e for details on what event handlers you can set and what they do.\n\nNote that the callback for each handler \u003cstrong\u003emust\u003c/strong\u003e be a Google Tag Manager variable that returns a valid function.",
-        "defaultValue": "show"
+        "help": "See \u003ca href\u003d\"https://help.qualaroo.com/hc/en-us/articles/201447336-Using-Event-Handler-Callbacks\"\u003ethis article\u003c/a\u003e for details on what event handlers you can set and what they do.\n\nNote that the callback for each handler \u003cstrong\u003emust\u003c/strong\u003e be a Google Tag Manager variable that returns a valid function."
       }
     ]
   }
