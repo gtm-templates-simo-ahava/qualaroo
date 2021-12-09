@@ -2,9 +2,11 @@ homepage: "www.simoahava.com"
 documentation: "https://www.simoahava.com/custom-templates/qualaroo/"
 versions:
   # Latest version
+  - sha: 6d63d77bca7672bf05d785f6d9653c6c11a4551a
+    changeNotes: Add support for setCookieExpireDays.
+  # Older versions
   - sha: a782a1b048e78ccf72ef3d5c790894c4dfe5d1bb
     changeNotes: Fix event handler configuration.
-  # Older versions
   - sha: b1bedcb3b81933963ee658c353aa07144a072158
     changeNotes: |2
       Added _kiq queue interactions.
