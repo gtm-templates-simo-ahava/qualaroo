@@ -264,11 +264,43 @@ ___TEMPLATE_PARAMETERS___
                 "type": "EQUALS"
               }
             ],
-            "newRowButtonText": "Add event handler",
-            "defaultValue": "show"
+            "newRowButtonText": "Add event handler"
           }
         ],
-        "help": "See \u003ca href\u003d\"https://help.qualaroo.com/hc/en-us/articles/201447336-Using-Event-Handler-Callbacks\"\u003ethis article\u003c/a\u003e for details on what event handlers you can set and what they do.\n\nNote that the callback for each handler \u003cstrong\u003emust\u003c/strong\u003e be a Google Tag Manager variable that returns a valid function."
+        "help": "See \u003ca href\u003d\"https://help.qualaroo.com/hc/en-us/articles/201447336-Using-Event-Handler-Callbacks\"\u003ethis article\u003c/a\u003e for details on what event handlers you can set and what they do.\n\nNote that the callback for each handler \u003cstrong\u003emust\u003c/strong\u003e be a Google Tag Manager variable that returns a valid function.",
+        "defaultValue": "show"
+      },
+      {
+        "type": "CHECKBOX",
+        "name": "setCookieExpireDays",
+        "checkboxText": "Set cookie expiration (in days)",
+        "simpleValueType": true,
+        "help": "Check this box to set the expiration of the Qualaroo cookie (in days)",
+        "subParams": [
+          {
+            "type": "TEXT",
+            "name": "cookieExpireDays",
+            "simpleValueType": true,
+            "enablingConditions": [
+              {
+                "paramName": "setCookieExpireDays",
+                "paramValue": true,
+                "type": "EQUALS"
+              }
+            ],
+            "valueValidators": [
+              {
+                "type": "NON_NEGATIVE_NUMBER"
+              },
+              {
+                "type": "NON_EMPTY"
+              }
+            ],
+            "valueHint": "365",
+            "valueUnit": "days"
+          }
+        ],
+        "defaultValue": false
       }
     ]
   }
@@ -280,6 +312,7 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 const createQueue = require('createQueue');
 const injectScript = require('injectScript');
 const createArgumentsQueue = require('createArgumentsQueue');
+const makeNumber = require('makeNumber');
 const makeTableMap = require('makeTableMap');
 const getType = require('getType');
 
@@ -300,6 +333,7 @@ const addEvents = () => {
   if (data.selectNudge) kiq(['selectNudge']);
   if (data.stopSurvey) kiq(['stopSurvey']);
   if (data.showSurvey) kiq(['showSurvey', data.surveyId, data.overrideTarget]);
+  if (data.setCookieExpireDays) kiq(['setCookieExpireDays', makeNumber(data.cookieExpireDays)]);
   if (data.setAdditionalProperties && data.properties.length) kiq(['set', makeTableMap(data.properties, 'key', 'value')]);
   if (data.setEventHandlers && data.eventHandlers.length) {
     data.eventHandlers.forEach(e => {
