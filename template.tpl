@@ -34,17 +34,17 @@ ___TEMPLATE_PARAMETERS___
 
 [
   {
-    "help": "Type the Qualaroo Script URL with leading \"https:\" here. For example: \u003cem\u003ehttps://s3.amazonaws.com/ki.js/13245/aBC.js\u003c/em\u003e.",
+    "help": "Type the Qualaroo Script URL with leading \"https:\" here. For example: \u003cem\u003ehttps://cl.qualaroo.com/ki.js/13245/aBC.js\u003c/em\u003e.",
     "alwaysInSummary": true,
     "valueValidators": [
       {
         "type": "NON_EMPTY"
       },
       {
-        "errorMessage": "The URL must start with \"https://s3.amazonaws.com/\".",
+        "errorMessage": "The URL must start with \"https://\".",
         "type": "REGEX",
         "args": [
-          "^https://s3\\.amazonaws\\.com/.*"
+          "^https://.*"
         ]
       }
     ],
@@ -52,7 +52,7 @@ ___TEMPLATE_PARAMETERS___
     "simpleValueType": true,
     "name": "scriptUrl",
     "type": "TEXT",
-    "valueHint": "https://s3.amazonaws.com/ki.js/13245/aBC.js"
+    "valueHint": "https://cl.qualaroo.com/ki.js/13245/aBC.js"
   },
   {
     "simpleValueType": true,
@@ -504,7 +504,7 @@ ___WEB_PERMISSIONS___
             "listItem": [
               {
                 "type": 1,
-                "string": "https://s3.amazonaws.com/ki.js/*"
+                "string": "https://cl.qualaroo.com/ki.js/*"
               }
             ]
           }
@@ -671,7 +671,7 @@ scenarios:
     assertApi('gtmOnSuccess').wasCalled();
 setup: |-
   const mockData = {
-    scriptUrl: 'https://s3.amazonaws.com/ki.js/test',
+    scriptUrl: 'https://cl.qualaroo.com/ki.js/test',
     gaIntegration: false,
     gaTrackingId: 'UA-12345-1',
     identify: false,
