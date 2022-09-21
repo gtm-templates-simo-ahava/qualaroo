@@ -219,7 +219,7 @@ ___TEMPLATE_PARAMETERS___
             "displayName": "",
             "simpleTableColumns": [
               {
-                "defaultValue": "",
+                "defaultValue": "show",
                 "displayName": "Event handler",
                 "name": "eventHandler",
                 "type": "SELECT",
@@ -267,8 +267,7 @@ ___TEMPLATE_PARAMETERS___
             "newRowButtonText": "Add event handler"
           }
         ],
-        "help": "See \u003ca href\u003d\"https://help.qualaroo.com/hc/en-us/articles/201447336-Using-Event-Handler-Callbacks\"\u003ethis article\u003c/a\u003e for details on what event handlers you can set and what they do.\n\nNote that the callback for each handler \u003cstrong\u003emust\u003c/strong\u003e be a Google Tag Manager variable that returns a valid function.",
-        "defaultValue": "show"
+        "help": "See \u003ca href\u003d\"https://help.qualaroo.com/hc/en-us/articles/201447336-Using-Event-Handler-Callbacks\"\u003ethis article\u003c/a\u003e for details on what event handlers you can set and what they do.\n\nNote that the callback for each handler \u003cstrong\u003emust\u003c/strong\u003e be a Google Tag Manager variable that returns a valid function."
       },
       {
         "type": "CHECKBOX",
