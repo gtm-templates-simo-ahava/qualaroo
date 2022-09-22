@@ -2,7 +2,7 @@ homepage: "www.simoahava.com"
 documentation: "https://www.simoahava.com/custom-templates/qualaroo/"
 versions:
   # Latest version
-  - sha: 3622547f89862a752174f32314ee17dd7c05dd43
+  - sha: efda5ed858ff560fdcace79dfaecabcffba80770
     changeNotes: Add dataLayer integration
   # Older versions
   - sha: df258958dff00c03c87e2d48899a6fd2f2476203
