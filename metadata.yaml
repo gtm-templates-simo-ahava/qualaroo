@@ -2,9 +2,13 @@ homepage: "www.simoahava.com"
 documentation: "https://www.simoahava.com/custom-templates/qualaroo/"
 versions:
   # Latest version
+  - sha: efda5ed858ff560fdcace79dfaecabcffba80770
+    changeNotes: Add dataLayer integration
+  # Older versions
+  - sha: df258958dff00c03c87e2d48899a6fd2f2476203
+    changeNotes: Fix set event handlers feature.
   - sha: 8d5357c895141f2512afb4ec567a8a0b44cb2a0c
     changeNotes: Update CDN to cl.qualaroo.com
-  # Older versions
   - sha: 6d63d77bca7672bf05d785f6d9653c6c11a4551a
     changeNotes: Add support for setCookieExpireDays.
   - sha: a782a1b048e78ccf72ef3d5c790894c4dfe5d1bb

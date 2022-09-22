@@ -61,6 +61,13 @@ ___TEMPLATE_PARAMETERS___
     "type": "CHECKBOX"
   },
   {
+    "simpleValueType": true,
+    "name": "dlIntegration",
+    "checkboxText": "Add dataLayer integration",
+    "type": "CHECKBOX",
+    "help": "Sets event handlers for the show and submit events."
+  },
+  {
     "enablingConditions": [
       {
         "paramName": "gaIntegration",
@@ -219,7 +226,7 @@ ___TEMPLATE_PARAMETERS___
             "displayName": "",
             "simpleTableColumns": [
               {
-                "defaultValue": "",
+                "defaultValue": "show",
                 "displayName": "Event handler",
                 "name": "eventHandler",
                 "type": "SELECT",
@@ -267,8 +274,7 @@ ___TEMPLATE_PARAMETERS___
             "newRowButtonText": "Add event handler"
           }
         ],
-        "help": "See \u003ca href\u003d\"https://help.qualaroo.com/hc/en-us/articles/201447336-Using-Event-Handler-Callbacks\"\u003ethis article\u003c/a\u003e for details on what event handlers you can set and what they do.\n\nNote that the callback for each handler \u003cstrong\u003emust\u003c/strong\u003e be a Google Tag Manager variable that returns a valid function.",
-        "defaultValue": "show"
+        "help": "See \u003ca href\u003d\"https://help.qualaroo.com/hc/en-us/articles/201447336-Using-Event-Handler-Callbacks\"\u003ethis article\u003c/a\u003e for details on what event handlers you can set and what they do.\n\nNote that the callback for each handler \u003cstrong\u003emust\u003c/strong\u003e be a Google Tag Manager variable that returns a valid function."
       },
       {
         "type": "CHECKBOX",
@@ -323,9 +329,41 @@ const gaId = data.gaTrackingId;
 const kiq = createQueue('_kiq');
 if (data.disableAuto) kiq(['disableAuto']);
 
+const dataLayerPush = createQueue('dataLayer');
+
 if (data.gaIntegration) {
   const ga = createArgumentsQueue('ga', 'ga.q');
   ga('create', data.gaTrackingId);
+}
+
+if (data.dlIntegration) {
+  kiq(['eventHandler', 'show', (nudge_id, screen_id, survey_name) => {
+    dataLayerPush({
+      'event': 'survey_display',
+      'survey_provider': 'Qualaroo',
+      'qualaroo': {
+        'question': undefined,
+        'nudge_id': nudge_id,
+        'screen_id': screen_id,
+        'action': 'show',
+        'survey_name': survey_name
+      }
+    });
+  }]);
+
+  kiq(['eventHandler', 'submit', (answers_array, nudge_id, screen_id, survey_name) => {
+    dataLayerPush({
+      'event': 'survey_submit',
+      'survey_provider': 'Qualaroo',
+      'qualaroo': {
+        'question': answers_array && answers_array.length ? answers_array[0] : undefined,
+        'nudge_id': nudge_id,
+        'screen_id': screen_id,
+        'action': 'submit',
+        'survey_name': survey_name
+      }
+    });
+  }]);
 }
 
 const addEvents = () => {
@@ -465,6 +503,45 @@ ___WEB_PERMISSIONS___
                   {
                     "type": 1,
                     "string": "ga.q"
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  },
+                  {
+                    "type": 8,
+                    "boolean": false
+                  }
+                ]
+              },
+              {
+                "type": 3,
+                "mapKey": [
+                  {
+                    "type": 1,
+                    "string": "key"
+                  },
+                  {
+                    "type": 1,
+                    "string": "read"
+                  },
+                  {
+                    "type": 1,
+                    "string": "write"
+                  },
+                  {
+                    "type": 1,
+                    "string": "execute"
+                  }
+                ],
+                "mapValue": [
+                  {
+                    "type": 1,
+                    "string": "dataLayer"
                   },
                   {
                     "type": 8,
