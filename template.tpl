@@ -337,7 +337,7 @@ if (data.gaIntegration) {
 }
 
 if (data.dlIntegration) {
-  kiq(['eventHandler', 'show', function(nudge_id, screen_id, survey_name){
+  kiq(['eventHandler', 'show', (nudge_id, screen_id, survey_name) => {
     dataLayerPush({
       'event': 'survey_display',
       'survey_provider': 'Qualaroo',
@@ -351,18 +351,17 @@ if (data.dlIntegration) {
     });
   }]);
 
-  kiq(['eventHandler', 'submit', function(answers_array, nudge_id, screen_id, survey_name){
+  kiq(['eventHandler', 'submit', (answers_array, nudge_id, screen_id, survey_name) => {
     dataLayerPush({
       'event': 'survey_submit',
       'survey_provider': 'Qualaroo',
       'qualaroo': {
-        'question': answers_array[0],
+        'question': answers_array && answers_array.length ? answers_array[0] : undefined,
         'nudge_id': nudge_id,
         'screen_id': screen_id,
         'action': 'submit',
         'survey_name': survey_name
       }
-
     });
   }]);
 }
